@@ -6,6 +6,7 @@
 
 <p></p>
 <p></p>
+Standalone FeedM Notification System;
 Original: https://github.com/Mobius1/FeedM 
 <p></p>
 <p></p>
