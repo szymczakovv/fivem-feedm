@@ -4,8 +4,8 @@
 [![Paypal Doante](https://img.shields.io/badge/paypal-donate-blue.svg)](https://www.paypal.me/oplatyprimerp)
 [![Discord](https://discordapp.com/api/guilds/252317073814978561/embed.png)](https://discord.gg/wrSqK6k)
 
-Original: https://github.com/Mobius1/FeedM
-Edited by: https://github.com/elfeedoo & https://github.com/szymczakovv
+Original: https://github.com/Mobius1/FeedM 
+\nEdited by: https://github.com/elfeedoo & https://github.com/szymczakovv
 
 Changes:
 ```
