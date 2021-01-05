@@ -6,7 +6,12 @@
 
 <p></p>
 <p></p>
-Original: https://github.com/Mobius1/FeedM | Edited by: https://github.com/elfeedoo & https://github.com/szymczakovv
+Original: https://github.com/Mobius1/FeedM 
+<p></p>
+<p></p>
+Edited by: https://github.com/elfeedoo & https://github.com/szymczakovv
+<p></p>
+<p></p>
 
 Changes:
 ```
