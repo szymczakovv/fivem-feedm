@@ -24,7 +24,7 @@ FeedM Notification system reworked;
 [+] Added Radar mode = If player is in any vehicle then notify setted positon above Map else notify position setted to under Map
 [+] Easy to add new notifications ~ check below.
 ```
-If u are using ESX framework u can easyly add notify;
+If u are using ESX framework u can easyly add notify; ( ES_EXTENDED/CLIENT/FUNCTIONS.LUA )
 ```
 ESX.ShowNotification = function(msg)
 	SetNotificationTextEntry('STRING')
