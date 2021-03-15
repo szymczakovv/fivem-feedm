@@ -18,3 +18,5 @@ client_scripts {'config.lua', 'utils.lua', 'client.lua'}
 -- Exports
 export 'ShowNotification'
 export 'ShowAdvancedNotification'
+export 'ShowAdvancedInfinityNotification'
+export 'ShowInfinityNotification'
