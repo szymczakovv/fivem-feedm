@@ -23,6 +23,15 @@ FeedM Notification system reworked;
 [+] Added custom imgaes e.g your server logo
 [+] Added Radar mode = If player is in any vehicle then notify setted positon above Map else notify position setted to under Map
 [+] Easy to add new notifications ~ check below.
+[+] Added showing notify in distance with players for OneSync Infinity, below example;
+local Dystans = 19.99 -- Distance between players to show notify
+TriggerEvent("FeedM:showInfinityNotification", "Text", "5000", "primary", Dystans)
+
+OR (Advanced Notify);
+
+local Dystans = 19.99 -- Distance between players to show notify
+TriggerEvent("FeedM:showInfinityAdvancedNotification","title", "text", "text", "CustomLogo", "15000", "primary", Dystans)
+
 ```
 If u are using ESX framework u can easyly add notify; ( ES_EXTENDED/CLIENT/FUNCTIONS.LUA )
 ```
