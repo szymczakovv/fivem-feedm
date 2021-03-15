@@ -1,8 +1,8 @@
 --[ FeedM - edited by szymczakovv & elfeedo ]--
 -- Name: FeedM-Reworked
 -- Author: szymczakovv#1937, elfeedoo#6093
--- Date: 05/01/2021
--- Version: 0.1.6
+-- Date: 15/03/2021
+-- Version: 1.2.0
 
 
 
@@ -682,6 +682,29 @@ function ShowNotification(Message, Interval, Type)
     end
 end
 
+
+function ShowInfinityNotification(Message, Interval, Type, Dystans)
+    local pid = GetPlayerFromServerId(id)
+    local myId = PlayerId()
+    if Config.Enabled and CANQUEUE and QUEUE > Config.Queue - 1 then
+        if pid == myId then
+            QueueMessage(Message, Interval, Type)
+        elseif GetDistanceBetweenCoords(GetEntityCoords(Citizen.InvokeNative(0x43A66C31C68491C0, myId)), GetEntityCoords(Citizen.InvokeNative(0x43A66C31C68491C0, pid)), true) <= dystans then
+            if Citizen.InvokeNative(0xB8DFD30D6973E135, pid) then
+                QueueMessage(Message, Interval, Type)
+            end
+        end
+    else
+        if pid == myId then
+            BuildMessage(Message, Interval, Type)
+         elseif GetDistanceBetweenCoords(GetEntityCoords(Citizen.InvokeNative(0x43A66C31C68491C0, myId)), GetEntityCoords(Citizen.InvokeNative(0x43A66C31C68491C0, pid)), true) <= dystans then
+            if Citizen.InvokeNative(0xB8DFD30D6973E135, pid) then
+                BuildMessage(Message, Interval, Type)
+            end
+        end
+    end
+end
+
 function ShowAdvancedNotification(Title, Subject, Message, Icon, Interval, Type, OnFinish)
     if Config.Enabled then
         if not Icon then
@@ -699,13 +722,38 @@ function ShowAdvancedNotification(Title, Subject, Message, Icon, Interval, Type,
     end
 end
 
+function ShowInfinityAdvancedNotification(Title, Subject, Message, Icon, Interval, Type, Dystans)
+    if Config.Enabled and CANQUEUE and QUEUE > Config.Queue - 1 then
+        if not Icon then
+            Icon = 'CHAR_BLANK_ENTRY'
+        end
+        if pid == myId then
+            QueueMessage(Message, Interval, Type, true, Title, Subject, Icon)
+        elseif GetDistanceBetweenCoords(GetEntityCoords(Citizen.InvokeNative(0x43A66C31C68491C0, myId)), GetEntityCoords(Citizen.InvokeNative(0x43A66C31C68491C0, pid)), true) <= dystans then
+            if Citizen.InvokeNative(0xB8DFD30D6973E135, pid) then
+                QueueMessage(Message, Interval, Type, true, Title, Subject, Icon)
+            end
+        end
+    else
+        if pid == myId then
+            BuildMessage(Message, Interval, Type, true, Title, Subject, Icon)
+         elseif GetDistanceBetweenCoords(GetEntityCoords(Citizen.InvokeNative(0x43A66C31C68491C0, myId)), GetEntityCoords(Citizen.InvokeNative(0x43A66C31C68491C0, pid)), true) <= dystans then
+            if Citizen.InvokeNative(0xB8DFD30D6973E135, pid) then
+                BuildMessage(Message, Interval, Type, true, Title, Subject, Icon)
+            end
+        end
+    end
+end
+
+
 --====================================================================================================================
 --                                                    EXPORTS                                                      --
 --====================================================================================================================
 
 exports('ShowNotification', ShowNotification)
 exports('ShowAdvancedNotification', ShowAdvancedNotification)
-
+exports('ShowInfinityNotification', ShowInfinityNotification)
+exports('ShowAdvancedNotification', ShowAdvancedNotification)
 --====================================================================================================================
 --                                                     EVENTS                                                      --
 --====================================================================================================================
@@ -713,6 +761,12 @@ exports('ShowAdvancedNotification', ShowAdvancedNotification)
 RegisterNetEvent('FeedM:showNotification')
 AddEventHandler("FeedM:showNotification", function(Message, Interval, Type)
     ShowNotification(Message, Interval, Type)
+end)
+
+
+RegisterNetEvent('FeedM:showInfinityNotification')
+AddEventHandler("FeedM:showInfinityNotification", function(Message, Interval, Type, Dystans)
+    ShowNotification(Message, Interval, Type, Dystans)
 end)
 
 RegisterNetEvent('FeedM:showTitledNotification')
@@ -728,6 +782,11 @@ end)
 RegisterNetEvent('FeedM:showAdvancedNotification')
 AddEventHandler("FeedM:showAdvancedNotification", function(Title, Subject, Message, Icon, Interval, Type, OnFinish)
     ShowAdvancedNotification(Title, Subject, Message, Icon, Interval, Type, OnFinish)
+end)
+
+RegisterNetEvent('FeedM:showAdvancedNotification')
+AddEventHandler("FeedM:showAdvancedNotification", function(Title, Subject, Message, Icon, Interval, Type, OnFinish, Dystans)
+    ShowAdvancedNotification(Title, Subject, Message, Icon, Interval, Type, OnFinish, Dystans)
 end)
 
 RegisterNetEvent('FeedM:halt')
