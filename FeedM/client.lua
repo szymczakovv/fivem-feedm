@@ -329,44 +329,6 @@ function InitThreads()
         end
     end)
 
-	--[[if Config.RadarMod then
-		Citizen.CreateThread(function()
-			while true do
-				Citizen.Wait(200)
-
-				local t = exports['streetLabel']:DisplayingStreet()
-				if Config.Position == "bottomLeft" and t == false then
-					Config.Position = "bottomLeftMod"
-					POSITION = Config.Positions["bottomLeftMod"]
-					t = nil
-				elseif Config.Position == "bottomLeftMod" and t == true then
-					Config.Position = "bottomLeft"
-					POSITION = Config.Positions["bottomLeft"]
-					t = nil
-				end
-
-				if t == nil then
-					local d = {}
-					for i = #MESSAGES, 1, -1 do
-						if not MESSAGES[i].Hidden and not MESSAGES[i].Remove then
-							table.insert(d, MESSAGES[i])
-						else
-							local cb = MESSAGES[i].OnFinish
-							if cb then
-								cb()
-							end
-						end
-					end
-
-					MESSAGES = {}
-					for _, Message in ipairs(d) do
-						AddMessage(Message.Message, Message.Interval, Message.BG, Message.Advanced, Message.Title, Message.Subject, Message.Icon.Thumb, Message.Ready, Message.OnFinish)
-					end
-				end
-			end
-		end)
-	end]]
-
 	if Config.RadarMod then
 		Citizen.CreateThread(function()
 			while true do
