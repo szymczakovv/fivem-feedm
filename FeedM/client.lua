@@ -779,8 +779,8 @@ AddEventHandler("FeedM:showTitledNotification", function(Title, Subject, Message
     ShowAdvancedNotification(Title, Subject, Message)
 end)
 
-RegisterNetEvent('FeedM:showAdvancedNotification')
-AddEventHandler("FeedM:showAdvancedNotification", function(Title, Subject, Message, Icon, Interval, Type, OnFinish)
+RegisterNetEvent('FeedM:ShowInfinityAdvancedNotification')
+AddEventHandler("FeedM:ShowInfinityAdvancedNotification", function(Title, Subject, Message, Icon, Interval, Type, OnFinish)
     ShowAdvancedNotification(Title, Subject, Message, Icon, Interval, Type, OnFinish)
 end)
 
